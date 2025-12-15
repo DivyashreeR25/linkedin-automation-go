@@ -1,0 +1,5 @@
+.env
+cookies.json
+messages.json
+profile_scores.json
+outputs/
