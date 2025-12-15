@@ -201,7 +201,7 @@ This approach aligns with ethical automation practices.
 Download from: https://go.dev/dl/
 
 2️⃣ Clone Repository
-git clone <repository-url>
+git clone https://github.com/DivyashreeR25/linkedin-automation-go.git
 cd linkedin-automation
 
 3️⃣ Configure Environment Variables
