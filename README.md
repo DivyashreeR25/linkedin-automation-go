@@ -222,6 +222,6 @@ storage/messages.json
 output/profile_scores.json
 ```
 ⚠️ **Important**
-This tool is built strictly for **educational and evaluation purposes**. It runs in **SAFE MODE**, meaning it does **not perform destructive or irreversible actions** such as sending real connection requests or messages.
 
-The focus of this project is **engineering capability, anti-detection awareness, and ethical automation design**, not production deployment.
+This tool runs in **SAFE MODE**, meaning it does **not perform destructive or irreversible actions** such as sending real connection requests or messages.
+
