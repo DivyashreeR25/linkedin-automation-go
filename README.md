@@ -1,39 +1,30 @@
-LinkedIn Automation – Technical Proof of Concept (Go + Rod)
+# LinkedIn Automation – Technical Proof of Concept (Go + Rod)
 
-📌 Overview
+## Overview
 
-This project is a Go-based LinkedIn automation proof-of-concept designed to demonstrate advanced browser automation, stealth techniques, and clean system architecture.
+This project is a **Go-based LinkedIn automation proof-of-concept** designed to demonstrate **advanced browser automation, stealth techniques, and clean system architecture**.
 
-⚠️ Important:
-This tool is built strictly for educational and evaluation purposes. It runs in SAFE MODE, meaning it does not perform destructive or irreversible actions such as sending real connection requests or messages.
+# Project Objectives
 
-The focus of this project is engineering capability, anti-detection awareness, and ethical automation design, not production deployment.
+* Demonstrate **advanced browser automation using Go + Rod**
+* Simulate **human-like behavior** to reduce bot detection signals
+* Implement **robust stealth techniques** without bypassing platform security
+* Build a **clean, modular, and extensible architecture**
+* Showcase **intelligent automation using AI-inspired logic**
 
-🎯 Project Objectives
+# Tech Stack
 
-Demonstrate advanced browser automation using Go + Rod
+| Component          | Technology                   |
+| ------------------ | ---------------------------- |
+| Language           | Go (Golang)                  |
+| Browser Automation | Rod                          |
+| Storage            | JSON                         |
+| AI Logic           | Rule-based relevance scoring |
+| Platform           | Windows / Chromium           |
 
-Simulate human-like behavior to reduce bot detection signals
+# Project Structure
 
-Implement robust stealth techniques without bypassing platform security
-
-Build a clean, modular, and extensible architecture
-
-Showcase intelligent automation using AI-inspired logic
-
-🧱 Tech Stack
-
-Language: Go (Golang)
-
-Browser Automation: Rod
-
-Storage: JSON (session cookies, message drafts, AI scores)
-
-AI Logic: Rule-based, interpretable relevance scoring (API-agnostic)
-
-Platform: Windows / Chromium
-
-📁 Project Structure
+```
 linkedin-automation/
 ├── auth/           # Login & authentication logic
 ├── search/         # Profile search & pagination
@@ -48,213 +39,189 @@ linkedin-automation/
 │   └── main.go     # Application entry point
 ├── .env.example    # Environment variable template
 └── README.md
+```
 
-🔐 Core Functional Features
-1️⃣ Authentication System
+# Core Functional Features
 
-Login using credentials from environment variables
+## 1️⃣ Authentication System
 
-Detect login success/failure
+* Login using credentials from **environment variables**
+* Detect **login success or failure**
+* Persist **session cookies**
+* Resume sessions **without re-login**
+* Automatic **re-login if session expires**
 
-Persist session cookies
+## 2️⃣ Search & Targeting
 
-Resume sessions without re-login
+* Search profiles using keywords
+  Example: `"Software Engineer"`
+* Scroll-based pagination
+* Extract profile URLs
+* Avoid duplicate profiles
+* Configurable result limits
 
-Automatic re-login if session becomes invalid
+## 3️⃣ Profile Navigation (SAFE MODE)
 
-2️⃣ Search & Targeting
+* Automated navigation to profiles
+* Detect presence of **"Connect" button**
+* **No connection requests are sent**
+* Clear logging of **connection eligibility**
 
-Search profiles by keyword (e.g., “Software Engineer”)
+## 4️⃣ Messaging System (SAFE MODE)
 
-Scroll-based pagination
+* Detect accepted connections via **Message button**
+* Generate **personalized follow-up messages**
+* Template-based message generation
+* Support **dynamic variables** such as name
+* Store message drafts locally in **JSON**
+* **No messages are sent to real users**
 
-Extract profile URLs
+# AI-Powered Profile Relevance Scoring
 
-Avoid duplicate profiles
+An **AI-inspired module** analyzes public profile content and assigns a **relevance score** for a target role (e.g., Software Engineer).
 
-Configurable result limits
+### What It Does
 
-3️⃣ Profile Navigation (SAFE MODE)
+* Extracts visible profile text
+* Applies weighted **keyword-based scoring**
+* Produces **explainable relevance scores**
+* Ranks profiles by suitability
+* Saves results to:
 
-Programmatic navigation to profiles
+```
+output/profile_scores.json
+```
 
-Detection of “Connect” button
+### Why This Matters
 
-No connection requests are sent
+* Demonstrates **intelligent decision-making**
+* Reduces unnecessary automation actions
+* Fully **ethical and read-only**
+* Easily extensible to **LLMs in the future**
 
-Clear logging of connection eligibility
+# Anti-Bot & Stealth Techniques (8+ Implemented)
 
-4️⃣ Messaging System (SAFE MODE)
+The assignment requires **at least 8 stealth techniques**.
+This project implements **more than required**.
 
-Detect accepted connections via “Message” button
+### Mandatory Techniques
 
-Generate personalized follow-up messages using templates
+* Human-like mouse movement
+* Randomized timing patterns
+* Browser fingerprint masking
 
-Support dynamic variables (e.g., name)
+### Additional Techniques
 
-Store message drafts locally in JSON
+* Non-headless browser execution
+* Randomized viewport dimensions
+* Session persistence via cookies
+* Activity scheduling (business hours + breaks)
+* Explicit rate limiting
+* Throttling awareness
+* SAFE MODE execution
+* Security checkpoint detection
 
-No messages are sent to real users
-
-🧠 AI-Powered Profile Relevance Scoring (Extra Feature)
-
-An AI-inspired module analyzes public profile text and assigns a relevance score for a target role (e.g., Software Engineer).
-
-What it does:
-
-Extracts visible profile content
-
-Applies weighted keyword-based scoring
-
-Produces explainable relevance scores
-
-Ranks profiles by suitability
-
-Saves results to output/profile_scores.json
-
-Why this matters:
-
-Demonstrates intelligent decision-making
-
-Reduces unnecessary automation actions
-
-Fully ethical and read-only
-
-Easily extensible to LLMs in the future
-
-🛡️ Anti-Bot & Stealth Techniques (8+ Implemented)
-
-The assignment requires at least 8 stealth techniques.
-This project implements more than required.
-
-Mandatory Techniques
-
-Human-like mouse movement
-
-Randomized timing patterns
-
-Browser fingerprint masking (safe & partial)
-
-Additional Techniques
-
-Non-headless browser execution
-
-Randomized viewport dimensions
-
-Session persistence via cookies
-
-Activity scheduling (business hours + breaks)
-
-Explicit rate limiting per run
-
-Throttling awareness (cooldowns & delays)
-
-SAFE MODE (no destructive actions)
-
-Security checkpoint detection (2FA / CAPTCHA)
-
-🔐 Security Checkpoint Handling
+# Security Checkpoint Handling
 
 The system detects:
 
-2FA challenges
+* 2FA challenges
+* CAPTCHA pages
+* “Verify it's you” screens
 
-CAPTCHA pages
+### When Detected
 
-“Verify it’s you” screens
+* Automation **pauses safely**
+* User completes verification manually
+* Execution resumes **after confirmation**
 
-When detected:
+⚠️ The system **does not attempt to bypass security mechanisms**.
 
-Automation pauses safely
-
-User completes verification manually
-
-Execution resumes only after confirmation
-
-⚠️ No attempt is made to bypass security mechanisms.
-
-🧠 Ethical Design (SAFE MODE)
+# Ethical Design (SAFE MODE)
 
 This project intentionally avoids:
 
-Sending real connection requests
-
-Sending real LinkedIn messages
-
-Bypassing LinkedIn security
-
-Running unattended background automation
+* Sending real connection requests
+* Sending real LinkedIn messages
+* Bypassing LinkedIn security
+* Running unattended automation
 
 Instead, it focuses on:
 
-Logic demonstration
+* Logic demonstration
+* Decision-making
+* Tracking and explainability
 
-Decision-making
+This approach aligns with **ethical automation practices**.
 
-Tracking & explainability
+# Setup Instructions
 
-This approach aligns with ethical automation practices.
+## 1️⃣ Install Go
 
-⚙️ Setup Instructions
-1️⃣ Install Go
+Download and install Go:
 
-Download from: https://go.dev/dl/
+[https://go.dev/dl/](https://go.dev/dl/)
 
-2️⃣ Clone Repository
+## 2️⃣ Clone Repository
+
+```bash
 git clone https://github.com/DivyashreeR25/linkedin-automation-go.git
 cd linkedin-automation
+```
 
-3️⃣ Configure Environment Variables
+## 3️⃣ Configure Environment Variables
 
-Create a .env file using .env.example:
+Create a `.env` file using `.env.example`.
 
+```
 LINKEDIN_EMAIL=your_email
 LINKEDIN_PASSWORD=your_password
+```
 
-4️⃣ Run the Application
+## 4️⃣ Run the Application
+
+```bash
 go run cmd/main.go
+```
 
-📊 Execution Flow (High-Level)
+# Execution Flow
+
+```
 Start
-↓
+ ↓
 Activity scheduling check
-↓
+ ↓
 Launch non-headless browser
-↓
+ ↓
 Load session cookies
-↓
+ ↓
 Login verification
-↓
+ ↓
 Security checkpoint detection
-↓
+ ↓
 Search profiles
-↓
+ ↓
 Visit profiles safely
-↓
+ ↓
 Detect connect & message eligibility
-↓
+ ↓
 Generate message drafts
-↓
+ ↓
 AI relevance scoring
-↓
+ ↓
 Save outputs
-↓
+ ↓
 End
+```
 
-📌 Key Notes for Evaluators
+# Output Files
 
-This project is a technical proof-of-concept
+```
+storage/cookies.json
+storage/messages.json
+output/profile_scores.json
+```
+⚠️ **Important**
+This tool is built strictly for **educational and evaluation purposes**. It runs in **SAFE MODE**, meaning it does **not perform destructive or irreversible actions** such as sending real connection requests or messages.
 
-Focus is on architecture, stealth, and correctness
-
-SAFE MODE is intentional and ethical
-
-AI module is explainable and API-agnostic
-
-Designed for clarity, not abuse
-
-👤 Author
-
-Divyashree R
-Computer Science and Engineering
-Software Developer Internship Candidate
+The focus of this project is **engineering capability, anti-detection awareness, and ethical automation design**, not production deployment.
